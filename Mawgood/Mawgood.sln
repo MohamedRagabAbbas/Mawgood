@@ -5,7 +5,7 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MawgoodApi", "MawgoodApi\MawgoodApi.csproj", "{A39B663A-AC0E-46ED-ACBA-5ACCEC0D4C85}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mawgood.Core", "Mawgood.core\Mawgood.Core.csproj", "{D0DEAC57-8216-40AA-BE6D-D7B1A9DC86FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mawgood.Core", "Mawgood.Core\Mawgood.Core.csproj", "{D0DEAC57-8216-40AA-BE6D-D7B1A9DC86FD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mawgood.EF", "Mawgood.EF\Mawgood.EF.csproj", "{26B727E4-DF37-40D5-843E-A50575FF06A2}"
 EndProject

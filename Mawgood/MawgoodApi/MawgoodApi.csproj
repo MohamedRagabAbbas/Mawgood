@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Mawgood.core\Mawgood.Core.csproj" />
+    <ProjectReference Include="..\Mawgood.Core\Mawgood.Core.csproj" />
     <ProjectReference Include="..\Mawgood.EF\Mawgood.EF.csproj" />
   </ItemGroup>
 

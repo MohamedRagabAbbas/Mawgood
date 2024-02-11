@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -16,8 +16,16 @@
     </PackageReference>
   </ItemGroup>
 
+
+
   <ItemGroup>
-    <ProjectReference Include="..\Mawgood.core\Mawgood.Core.csproj" />
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mawgood.Core\Mawgood.Core.csproj" />
   </ItemGroup>
 
 </Project>

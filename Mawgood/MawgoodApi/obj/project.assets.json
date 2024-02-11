@@ -3536,8 +3536,8 @@
     },
     "Mawgood.Core/1.0.0": {
       "type": "project",
-      "path": "../Mawgood.core/Mawgood.Core.csproj",
-      "msbuildProject": "../Mawgood.core/Mawgood.Core.csproj"
+      "path": "../Mawgood.Core/Mawgood.Core.csproj",
+      "msbuildProject": "../Mawgood.Core/Mawgood.Core.csproj"
     },
     "Mawgood.EF/1.0.0": {
       "type": "project",
@@ -3589,8 +3589,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\Mawgood\\Mawgood\\Mawgood.core\\Mawgood.Core.csproj": {
-              "projectPath": "D:\\Mawgood\\Mawgood\\Mawgood.core\\Mawgood.Core.csproj"
+            "D:\\Mawgood\\Mawgood\\Mawgood.Core\\Mawgood.Core.csproj": {
+              "projectPath": "D:\\Mawgood\\Mawgood\\Mawgood.Core\\Mawgood.Core.csproj"
             },
             "D:\\Mawgood\\Mawgood\\Mawgood.EF\\Mawgood.EF.csproj": {
               "projectPath": "D:\\Mawgood\\Mawgood\\Mawgood.EF\\Mawgood.EF.csproj"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LYLMcShs73jVM1VH8PismYRMy+vm+jqv0ccM7JimFRhKy1ulr+RT3We4gtwyX/hnxmjkMO5P3J1M9n8XzbQi0w==",
+  "dgSpecHash": "fV20658izETNb3fgOrB/NOh5WjsrNksjUhGsQmMRTSq1iYC5a47Qs2gUBcC+8oTA/xxYsaFLaPJZuo9sMv+ngA==",
   "success": true,
-  "projectFilePath": "D:\\Mawgood\\Mawgood\\Mawgood.core\\Mawgood.Core.csproj",
+  "projectFilePath": "D:\\Mawgood\\Mawgood\\Mawgood.Core\\Mawgood.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\AUC\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.15\\microsoft.aspnetcore.cryptography.internal.7.0.15.nupkg.sha512",
     "C:\\Users\\AUC\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.15\\microsoft.aspnetcore.cryptography.keyderivation.7.0.15.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Mawgood\\Mawgood\\Mawgood.core\\Mawgood.Core.csproj": {}
+    "D:\\Mawgood\\Mawgood\\Mawgood.Core\\Mawgood.Core.csproj": {}
   },
   "projects": {
-    "D:\\Mawgood\\Mawgood\\Mawgood.core\\Mawgood.Core.csproj": {
+    "D:\\Mawgood\\Mawgood\\Mawgood.Core\\Mawgood.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Mawgood\\Mawgood\\Mawgood.core\\Mawgood.Core.csproj",
+        "projectUniqueName": "D:\\Mawgood\\Mawgood\\Mawgood.Core\\Mawgood.Core.csproj",
         "projectName": "Mawgood.Core",
-        "projectPath": "D:\\Mawgood\\Mawgood\\Mawgood.core\\Mawgood.Core.csproj",
+        "projectPath": "D:\\Mawgood\\Mawgood\\Mawgood.Core\\Mawgood.Core.csproj",
         "packagesPath": "C:\\Users\\AUC\\.nuget\\packages\\",
-        "outputPath": "D:\\Mawgood\\Mawgood\\Mawgood.core\\obj\\",
+        "outputPath": "D:\\Mawgood\\Mawgood\\Mawgood.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

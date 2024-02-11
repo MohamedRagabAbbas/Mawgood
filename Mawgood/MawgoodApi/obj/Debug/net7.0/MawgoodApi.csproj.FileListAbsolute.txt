@@ -3,7 +3,6 @@ D:\Mawgood\Mawgood\MawgoodApi\obj\Debug\net7.0\MawgoodApi.GeneratedMSBuildEditor
 D:\Mawgood\Mawgood\MawgoodApi\obj\Debug\net7.0\MawgoodApi.AssemblyInfoInputs.cache
 D:\Mawgood\Mawgood\MawgoodApi\obj\Debug\net7.0\MawgoodApi.AssemblyInfo.cs
 D:\Mawgood\Mawgood\MawgoodApi\obj\Debug\net7.0\MawgoodApi.csproj.CoreCompileInputs.cache
-D:\Mawgood\Mawgood\MawgoodApi\obj\Debug\net7.0\MawgoodApi.MvcApplicationPartsAssemblyInfo.cs
 D:\Mawgood\Mawgood\MawgoodApi\obj\Debug\net7.0\MawgoodApi.MvcApplicationPartsAssemblyInfo.cache
 D:\Mawgood\Mawgood\MawgoodApi\bin\Debug\net7.0\appsettings.Development.json
 D:\Mawgood\Mawgood\MawgoodApi\bin\Debug\net7.0\appsettings.json

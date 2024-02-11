@@ -1,7 +1,12 @@
 using Mawgood.Core.Models;
 using Mawgood.EF.DB;
+using Mawgood.EF.Responses.ResponseMessage;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+
+
+
+ResponseMessage<string> responseMessage = new ResponseMessage<string>();
 
 var builder = WebApplication.CreateBuilder(args);
 
