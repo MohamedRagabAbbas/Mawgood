@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Mawgood\\Mawgood\\Mawgood.core\\Mawgood.core.csproj": {}
+    "D:\\Mawgood\\Mawgood\\Mawgood.core\\Mawgood.Core.csproj": {}
   },
   "projects": {
-    "D:\\Mawgood\\Mawgood\\Mawgood.core\\Mawgood.core.csproj": {
+    "D:\\Mawgood\\Mawgood\\Mawgood.core\\Mawgood.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Mawgood\\Mawgood\\Mawgood.core\\Mawgood.core.csproj",
-        "projectName": "Mawgood.core",
-        "projectPath": "D:\\Mawgood\\Mawgood\\Mawgood.core\\Mawgood.core.csproj",
+        "projectUniqueName": "D:\\Mawgood\\Mawgood\\Mawgood.core\\Mawgood.Core.csproj",
+        "projectName": "Mawgood.Core",
+        "projectPath": "D:\\Mawgood\\Mawgood\\Mawgood.core\\Mawgood.Core.csproj",
         "packagesPath": "C:\\Users\\AUC\\.nuget\\packages\\",
         "outputPath": "D:\\Mawgood\\Mawgood\\Mawgood.core\\obj\\",
         "projectStyle": "PackageReference",

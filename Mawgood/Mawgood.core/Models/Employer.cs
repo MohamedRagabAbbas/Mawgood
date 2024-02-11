@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mawgood.core.Models
+namespace Mawgood.Core.Models
 {
-    internal class Employer
+    public class Employer
     {
         public int Id { get; set; }
         public string FirstName { get; set; } = string.Empty;
@@ -43,8 +43,14 @@ namespace Mawgood.core.Models
         public string CompanyNews { get; set; } = string.Empty;
         public string CompanyEvents { get; set; } = string.Empty;
 
+        //Relationships
         public string UserId { get; set; } = string.Empty;  
         public User? User { get; set; }
+        public int? JobId { get; set; }
+        public List<Job>? Jobs { get; set; }
+
+
+
 
     }
 }

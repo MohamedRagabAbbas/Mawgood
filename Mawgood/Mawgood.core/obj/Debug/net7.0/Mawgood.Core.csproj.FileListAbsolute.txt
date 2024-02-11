@@ -1,0 +1,12 @@
+D:\Mawgood\Mawgood\Mawgood.core\bin\Debug\net7.0\Mawgood.Core.deps.json
+D:\Mawgood\Mawgood\Mawgood.core\bin\Debug\net7.0\Mawgood.Core.dll
+D:\Mawgood\Mawgood\Mawgood.core\bin\Debug\net7.0\Mawgood.Core.pdb
+D:\Mawgood\Mawgood\Mawgood.core\obj\Debug\net7.0\Mawgood.Core.csproj.AssemblyReference.cache
+D:\Mawgood\Mawgood\Mawgood.core\obj\Debug\net7.0\Mawgood.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Mawgood\Mawgood\Mawgood.core\obj\Debug\net7.0\Mawgood.Core.AssemblyInfoInputs.cache
+D:\Mawgood\Mawgood\Mawgood.core\obj\Debug\net7.0\Mawgood.Core.AssemblyInfo.cs
+D:\Mawgood\Mawgood\Mawgood.core\obj\Debug\net7.0\Mawgood.Core.csproj.CoreCompileInputs.cache
+D:\Mawgood\Mawgood\Mawgood.core\obj\Debug\net7.0\Mawgood.Core.dll
+D:\Mawgood\Mawgood\Mawgood.core\obj\Debug\net7.0\refint\Mawgood.Core.dll
+D:\Mawgood\Mawgood\Mawgood.core\obj\Debug\net7.0\Mawgood.Core.pdb
+D:\Mawgood\Mawgood\Mawgood.core\obj\Debug\net7.0\ref\Mawgood.Core.dll

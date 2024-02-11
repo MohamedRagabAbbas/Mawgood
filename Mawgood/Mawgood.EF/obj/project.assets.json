@@ -1135,6 +1135,19 @@
             "rid": "win"
           }
         }
+      },
+      "Mawgood.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.15"
+        },
+        "compile": {
+          "bin/placeholder/Mawgood.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Mawgood.Core.dll": {}
+        }
       }
     }
   },
@@ -3048,10 +3061,16 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Mawgood.Core/1.0.0": {
+      "type": "project",
+      "path": "../Mawgood.core/Mawgood.Core.csproj",
+      "msbuildProject": "../Mawgood.core/Mawgood.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "Mawgood.Core >= 1.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 7.0.15",
       "Microsoft.EntityFrameworkCore >= 7.0.15",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.15",
@@ -3090,7 +3109,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Mawgood\\Mawgood\\Mawgood.core\\Mawgood.Core.csproj": {
+              "projectPath": "D:\\Mawgood\\Mawgood\\Mawgood.core\\Mawgood.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

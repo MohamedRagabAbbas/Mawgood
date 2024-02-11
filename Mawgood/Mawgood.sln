@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MawgoodApi", "MawgoodApi\MawgoodApi.csproj", "{A39B663A-AC0E-46ED-ACBA-5ACCEC0D4C85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MawgoodApi", "MawgoodApi\MawgoodApi.csproj", "{A39B663A-AC0E-46ED-ACBA-5ACCEC0D4C85}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mawgood.Core", "Mawgood.core\Mawgood.Core.csproj", "{D0DEAC57-8216-40AA-BE6D-D7B1A9DC86FD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mawgood.EF", "Mawgood.EF\Mawgood.EF.csproj", "{26B727E4-DF37-40D5-843E-A50575FF06A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{A39B663A-AC0E-46ED-ACBA-5ACCEC0D4C85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A39B663A-AC0E-46ED-ACBA-5ACCEC0D4C85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A39B663A-AC0E-46ED-ACBA-5ACCEC0D4C85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0DEAC57-8216-40AA-BE6D-D7B1A9DC86FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0DEAC57-8216-40AA-BE6D-D7B1A9DC86FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0DEAC57-8216-40AA-BE6D-D7B1A9DC86FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0DEAC57-8216-40AA-BE6D-D7B1A9DC86FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26B727E4-DF37-40D5-843E-A50575FF06A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26B727E4-DF37-40D5-843E-A50575FF06A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26B727E4-DF37-40D5-843E-A50575FF06A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26B727E4-DF37-40D5-843E-A50575FF06A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
