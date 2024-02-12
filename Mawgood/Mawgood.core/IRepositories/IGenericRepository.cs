@@ -26,6 +26,7 @@ namespace Mawgood.Core.IRepositories
 
         // delete method
         Task<IResponseMessage<T>> Delete(int id);
+        Task<IResponseMessage<IEnumerable<T>>> DeleteRange(List<int> ids);
 
     }
 }

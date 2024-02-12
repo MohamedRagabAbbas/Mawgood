@@ -118,12 +118,42 @@ namespace Mawgood.EF.Repositories
         }
 
 
-        public Task<IResponseMessage<T>> Delete(int id)
+        public async Task<IResponseMessage<T>> Delete(int id)
         {
-            throw new NotImplementedException();
+            var model = await _dbSet.FindAsync(id);
+            if(model is not null)
+            {
+                var obj = _dbSet.Remove(model);
+                if (obj is not null)
+                    return new ResponseMessage<T>()
+                    {
+                        Message = "This object is deleted Successfully...",
+                        Status = true,
+                        Data = obj as T
+                    };
+                return new ResponseMessage<T>() { Message = "Cannot delete this object" };
+            }
+            return new ResponseMessage<T>() { Message = "Cannot find this object" };
         }
 
-        
+        public async Task<IResponseMessage<IEnumerable<T>>> DeleteRange(List<int> ids)
+        {
+            ResponseMessage<IEnumerable<T>> responseMessage = new ResponseMessage<IEnumerable<T>>();
+            foreach (var id in ids)
+            {
+                var response = await Delete(id);
+                if(response.Status)
+                {
+                    responseMessage.Data.Append(response.Data);
+                    responseMessage.Message += $"The object with id = {id} is deleted successfull...\n";
+                }
+                else
+                    responseMessage.Message += $"The object with id = {id} cannot be deleted...\n";
+            }
+            if (responseMessage.Data is not null)
+                responseMessage.Status = true;
+            return responseMessage;
+        }
 
 
     }
