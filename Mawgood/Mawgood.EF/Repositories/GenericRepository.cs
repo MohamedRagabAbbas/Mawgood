@@ -1,11 +1,13 @@
 ﻿using Mawgood.Core.IRepositories;
 using Mawgood.Core.IResponses.IResponseMessage;
 using Mawgood.EF.DB;
+using Mawgood.EF.Responses.ResponseMessage;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,32 +24,70 @@ namespace Mawgood.EF.Repositories
             _dbSet = _dbContext.Set<T>();
         }
 
-        public Task<IEnumerable<IResponseMessage<T>>> GetAllAsync()
+        public async Task<IResponseMessage<IEnumerable<T>>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            var all = await _dbSet.ToListAsync();
+            if (all is not null)
+                return new ResponseMessage<IEnumerable<T>>()
+                {
+                    Message = "The information is successfully found...",
+                    Status = true,
+                    Data = all
+                };
+            return new ResponseMessage<IEnumerable<T>>()
+            {
+                Message = "The information is not found..."
+            };
         }
 
-        public Task<IResponseMessage<T>> GetByIdAsync(int id)
+        public async Task<IResponseMessage<T>> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var obj = await _dbSet.FindAsync(id);
+            if(obj is not null)
+                return new ResponseMessage<T>()
+                {
+                    Message = "The object is successfully found...",
+                    Status = true,
+                    Data = obj
+                };
+            return new ResponseMessage<T>() { Message = "The object is not found..." };
+
         }
 
-        public Task<IResponseMessage<T>> GetFirstAsync(Expression<Func<T, bool>> predicate)
+        public async Task<IResponseMessage<T>> GetFirstAsync(Expression<Func<T, bool>> predicate)
         {
-            throw new NotImplementedException();
+            var obj = await _dbSet.Where<T>(predicate).FirstAsync();
+            if (obj is not null)
+                return new ResponseMessage<T>()
+                {
+                    Message = "The object is successfully found...",
+                    Status = true,
+                    Data = obj
+                };
+            return new ResponseMessage<T>() { Message = "The object is not found..." };
         }
 
-        public Task<IEnumerable<IResponseMessage<T>>> GetWhereAsync(Expression<Func<T, bool>> predicate)
+        public async Task<IResponseMessage<IEnumerable<T>>> GetWhereAsync(Expression<Func<T, bool>> predicate)
         {
-            throw new NotImplementedException();
+            var objs = await _dbSet.Where<T>(predicate).ToListAsync();
+            if (objs is not null)
+                return new ResponseMessage<IEnumerable<T>>()
+                {
+                    Message = "The object is successfully found...",
+                    Status = true,
+                    Data = objs
+                };
+            return new ResponseMessage<IEnumerable<T>>() { Message = "The object is not found..." };
         }
+
 
 
         public Task<IResponseMessage<T>> Add(T model)
         {
             throw new NotImplementedException();
         }
-        public Task<IResponseMessage<T>> Update(T model)
+
+        public Task<IResponseMessage<IEnumerable<T>>> AppRanage(List<T> models)
         {
             throw new NotImplementedException();
         }
@@ -57,5 +97,16 @@ namespace Mawgood.EF.Repositories
             throw new NotImplementedException();
         }
 
+        
+
+        public Task<IResponseMessage<T>> Update(T model)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IResponseMessage<IEnumerable<T>>> UpdateRanage(List<T> models)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
