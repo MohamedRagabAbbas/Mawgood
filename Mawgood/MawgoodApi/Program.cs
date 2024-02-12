@@ -1,12 +1,10 @@
+using Mawgood.Core.IRepositories;
 using Mawgood.Core.Models;
 using Mawgood.EF.DB;
+using Mawgood.EF.Repositories;
 using Mawgood.EF.Responses.ResponseMessage;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-
-
-
-ResponseMessage<string> responseMessage = new ResponseMessage<string>();
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +19,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
     b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
 });
+builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
 // Add Identity
 builder.Services.AddIdentity<User, IdentityRole>()

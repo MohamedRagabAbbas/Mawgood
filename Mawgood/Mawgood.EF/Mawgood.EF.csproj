@@ -19,12 +19,6 @@
 
 
   <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-
-
-
-  <ItemGroup>
     <ProjectReference Include="..\Mawgood.Core\Mawgood.Core.csproj" />
   </ItemGroup>
 
