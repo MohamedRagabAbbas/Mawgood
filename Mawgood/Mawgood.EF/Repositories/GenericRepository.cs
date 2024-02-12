@@ -82,14 +82,22 @@ namespace Mawgood.EF.Repositories
 
 
 
-        public Task<IResponseMessage<T>> Add(T model)
+        public async Task<IResponseMessage<T>> Add(T model)
         {
-            throw new NotImplementedException();
+            var obj = await _dbSet.AddAsync(model);
+            if(obj is not null)
+                return new ResponseMessage<T>()
+                {
+                    Message = "This object is added successfully...",
+                    Status = true,
+                    Data = obj as T
+                };
+            return new ResponseMessage<T>() { Message = "This object is not added..." };
         }
 
-        public Task<IResponseMessage<IEnumerable<T>>> AppRanage(List<T> models)
+        public async Task AppRanage(List<T> models)
         {
-            throw new NotImplementedException();
+            await _dbSet.AddRangeAsync(models);
         }
 
         public Task<IResponseMessage<T>> Delete(int id)

@@ -18,7 +18,7 @@ namespace Mawgood.Core.IRepositories
 
         // add methods
         Task<IResponseMessage<T>> Add(T model);
-        Task<IResponseMessage<IEnumerable<T>>> AppRanage(List<T> models);
+        Task AppRanage(List<T> models);
 
         // update methods
         Task<IResponseMessage<T>> Update(T model);
