@@ -10,9 +10,5 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.15" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Mawgood.EF\Mawgood.EF.csproj" />
-  </ItemGroup>
-
 
 </Project>
