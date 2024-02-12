@@ -28,9 +28,6 @@ builder.Services.AddIdentity<User, IdentityRole>()
 
 
 
-
-
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

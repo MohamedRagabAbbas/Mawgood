@@ -17,6 +17,23 @@ namespace Mawgood.EF.DB
         {
             
         }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<Employer>()
+                .HasOne(x=>x.User)
+                .WithOne(x=>x.Employer)
+                .HasForeignKey<Employer>(x => x.UserId);
+
+            builder.Entity<JobSeeker>()
+                .HasOne(x => x.User)
+                .WithOne(x => x.JobSeeker)
+                .HasForeignKey<JobSeeker>(x => x.UserId);
+
+
+
+            base.OnModelCreating(builder);
+        }
         public DbSet<Job> Jobs { get; set; }
         public DbSet<Employer> Employers { get; set; }
         public DbSet<Application> Applications { get; set; }
