@@ -21,8 +21,8 @@ namespace Mawgood.Core.IRepositories
         Task AppRanage(List<T> models);
 
         // update methods
-        Task<IResponseMessage<T>> Update(T model);
-        Task<IResponseMessage<IEnumerable<T>>> UpdateRanage(List<T> models);
+        IResponseMessage<T> Update(T model);
+        void UpdateRanage(List<T> models);
 
         // delete method
         Task<IResponseMessage<T>> Delete(int id);

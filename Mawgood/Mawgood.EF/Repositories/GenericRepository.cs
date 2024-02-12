@@ -100,6 +100,24 @@ namespace Mawgood.EF.Repositories
             await _dbSet.AddRangeAsync(models);
         }
 
+        public IResponseMessage<T> Update(T model)
+        {
+            var obj = _dbSet.Update(model);
+            if (obj is not null)
+                return new ResponseMessage<T>()
+                {
+                    Message = "This object is updated successfully...",
+                    Status = true,
+                    Data = obj as T
+                };
+            return new ResponseMessage<T>() { Message = "Cannot update this object..." };
+        }
+        public void UpdateRanage(List<T> models)
+        {
+            _dbSet.UpdateRange(models);
+        }
+
+
         public Task<IResponseMessage<T>> Delete(int id)
         {
             throw new NotImplementedException();
@@ -107,14 +125,6 @@ namespace Mawgood.EF.Repositories
 
         
 
-        public Task<IResponseMessage<T>> Update(T model)
-        {
-            throw new NotImplementedException();
-        }
 
-        public Task<IResponseMessage<IEnumerable<T>>> UpdateRanage(List<T> models)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
