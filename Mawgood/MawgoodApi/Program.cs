@@ -1,6 +1,7 @@
 using Mawgood.Core.IRepositories;
 using Mawgood.Core.Jwt;
 using Mawgood.Core.Models;
+using Mawgood.EF.AutoMapping;
 using Mawgood.EF.DB;
 using Mawgood.EF.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -8,6 +9,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using AutoMapper;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
