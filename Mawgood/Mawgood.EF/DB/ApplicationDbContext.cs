@@ -23,32 +23,38 @@ namespace Mawgood.EF.DB
             builder.Entity<Employer>()
                 .HasOne(x=>x.User)
                 .WithOne(x=>x.Employer)
-                .HasForeignKey<Employer>(x => x.UserId);
+                .HasForeignKey<Employer>(x => x.UserId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder.Entity<JobSeeker>()
                 .HasOne(x => x.User)
                 .WithOne(x => x.JobSeeker)
-                .HasForeignKey<JobSeeker>(x => x.UserId);
+                .HasForeignKey<JobSeeker>(x => x.UserId)
+                .OnDelete(DeleteBehavior.NoAction); ;
 
             builder.Entity<Employer>()
                 .HasMany(x=>x.Jobs)
                 .WithOne(x=>x.Employer)
-                .HasForeignKey(y => y.EmployerId);
+                .HasForeignKey(y => y.EmployerId)
+                .OnDelete(DeleteBehavior.NoAction); ;
 
             builder.Entity<JobSeeker>()
                 .HasMany(x => x.Applications)
                 .WithOne(x => x.JobSeeker)
-                .HasForeignKey(x => x.JobSeekerId);
+                .HasForeignKey(x => x.JobSeekerId)
+                .OnDelete(DeleteBehavior.NoAction); ;
 
             builder.Entity<Application>()
                 .HasOne(x => x.Job)
                 .WithMany(x => x.Applications)
-                .HasForeignKey(x => x.JobId);
+                .HasForeignKey(x => x.JobId)
+                .OnDelete(DeleteBehavior.NoAction); ;
 
             builder.Entity<Application>()
                 .HasOne(x=>x.JobSeeker)
                 .WithMany(x => x.Applications)
-                .HasForeignKey(x => x.JobId);
+                .HasForeignKey(x => x.JobId)
+                .OnDelete(DeleteBehavior.NoAction); ;
 
             base.OnModelCreating(builder);
         }

@@ -55,8 +55,6 @@ namespace Mawgood.EF.Migrations
 
                     b.HasIndex("JobId");
 
-                    b.HasIndex("JobSeekerId");
-
                     b.ToTable("Applications");
                 });
 
@@ -188,18 +186,7 @@ namespace Mawgood.EF.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("JobId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -255,11 +242,7 @@ namespace Mawgood.EF.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("EmployerId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("EmployerId1")
+                    b.Property<int>("EmployerId")
                         .HasColumnType("int");
 
                     b.Property<string>("Experience")
@@ -319,7 +302,7 @@ namespace Mawgood.EF.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EmployerId1");
+                    b.HasIndex("EmployerId");
 
                     b.ToTable("Jobs");
                 });
@@ -333,6 +316,10 @@ namespace Mawgood.EF.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CvUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Feild")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -582,13 +569,13 @@ namespace Mawgood.EF.Migrations
                     b.HasOne("Mawgood.Core.Models.Job", "Job")
                         .WithMany("Applications")
                         .HasForeignKey("JobId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Mawgood.Core.Models.JobSeeker", "JobSeeker")
                         .WithMany("Applications")
-                        .HasForeignKey("JobSeekerId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("JobId")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Job");
@@ -601,7 +588,7 @@ namespace Mawgood.EF.Migrations
                     b.HasOne("Mawgood.Core.Models.User", "User")
                         .WithOne("Employer")
                         .HasForeignKey("Mawgood.Core.Models.Employer", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("User");
@@ -611,7 +598,9 @@ namespace Mawgood.EF.Migrations
                 {
                     b.HasOne("Mawgood.Core.Models.Employer", "Employer")
                         .WithMany("Jobs")
-                        .HasForeignKey("EmployerId1");
+                        .HasForeignKey("EmployerId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.Navigation("Employer");
                 });
@@ -621,7 +610,7 @@ namespace Mawgood.EF.Migrations
                     b.HasOne("Mawgood.Core.Models.User", "User")
                         .WithOne("JobSeeker")
                         .HasForeignKey("Mawgood.Core.Models.JobSeeker", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("User");
