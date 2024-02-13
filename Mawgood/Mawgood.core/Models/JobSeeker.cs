@@ -9,6 +9,7 @@ namespace Mawgood.Core.Models
     public class JobSeeker
     {
         public int Id { get; set; }
+        public string Feild { get; set; } = string.Empty;
         public string ImageUrl { get; set; } = string.Empty;
         public string CvUrl { get; set; } = string.Empty;
 

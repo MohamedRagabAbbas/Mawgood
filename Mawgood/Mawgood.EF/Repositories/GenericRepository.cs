@@ -1,7 +1,6 @@
-﻿using Mawgood.Core.IRepositories;
-using Mawgood.Core.IResponses.IResponseMessage;
+﻿using Mawgood.Core.DTO.Response;
+using Mawgood.Core.IRepositories;
 using Mawgood.EF.DB;
-using Mawgood.EF.Responses.ResponseMessage;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -24,7 +23,7 @@ namespace Mawgood.EF.Repositories
             _dbSet = _dbContext.Set<T>();
         }
 
-        public async Task<IResponseMessage<IEnumerable<T>>> GetAllAsync()
+        public async Task<ResponseMessage<IEnumerable<T>>> GetAllAsync()
         {
             var all = await _dbSet.ToListAsync();
             if (all is not null)
@@ -40,7 +39,7 @@ namespace Mawgood.EF.Repositories
             };
         }
 
-        public async Task<IResponseMessage<T>> GetByIdAsync(int id)
+        public async Task<ResponseMessage<T>> GetByIdAsync(int id)
         {
             var obj = await _dbSet.FindAsync(id);
             if(obj is not null)
@@ -54,7 +53,7 @@ namespace Mawgood.EF.Repositories
 
         }
 
-        public async Task<IResponseMessage<T>> GetFirstAsync(Expression<Func<T, bool>> predicate)
+        public async Task<ResponseMessage<T>> GetFirstAsync(Expression<Func<T, bool>> predicate)
         {
             var obj = await _dbSet.Where<T>(predicate).FirstAsync();
             if (obj is not null)
@@ -67,7 +66,7 @@ namespace Mawgood.EF.Repositories
             return new ResponseMessage<T>() { Message = "The object is not found..." };
         }
 
-        public async Task<IResponseMessage<IEnumerable<T>>> GetWhereAsync(Expression<Func<T, bool>> predicate)
+        public async Task<ResponseMessage<IEnumerable<T>>> GetWhereAsync(Expression<Func<T, bool>> predicate)
         {
             var objs = await _dbSet.Where<T>(predicate).ToListAsync();
             if (objs is not null)
@@ -82,7 +81,7 @@ namespace Mawgood.EF.Repositories
 
 
 
-        public async Task<IResponseMessage<T>> Add(T model)
+        public async Task<ResponseMessage<T>> Add(T model)
         {
             var obj = await _dbSet.AddAsync(model);
             if(obj is not null)
@@ -100,7 +99,7 @@ namespace Mawgood.EF.Repositories
             await _dbSet.AddRangeAsync(models);
         }
 
-        public IResponseMessage<T> Update(T model)
+        public ResponseMessage<T> Update(T model)
         {
             var obj = _dbSet.Update(model);
             if (obj is not null)
@@ -118,7 +117,7 @@ namespace Mawgood.EF.Repositories
         }
 
 
-        public async Task<IResponseMessage<T>> Delete(int id)
+        public async Task<ResponseMessage<T>> Delete(int id)
         {
             var model = await _dbSet.FindAsync(id);
             if(model is not null)
@@ -136,7 +135,7 @@ namespace Mawgood.EF.Repositories
             return new ResponseMessage<T>() { Message = "Cannot find this object" };
         }
 
-        public async Task<IResponseMessage<IEnumerable<T>>> DeleteRange(List<int> ids)
+        public async Task<ResponseMessage<IEnumerable<T>>> DeleteRange(List<int> ids)
         {
             ResponseMessage<IEnumerable<T>> responseMessage = new ResponseMessage<IEnumerable<T>>();
             foreach (var id in ids)

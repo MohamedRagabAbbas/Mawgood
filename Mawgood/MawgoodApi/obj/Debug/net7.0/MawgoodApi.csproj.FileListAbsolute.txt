@@ -84,3 +84,4 @@ D:\Mawgood\Mawgood\MawgoodApi\obj\Debug\net7.0\MawgoodApi.pdb
 D:\Mawgood\Mawgood\MawgoodApi\obj\Debug\net7.0\MawgoodApi.genruntimeconfig.cache
 D:\Mawgood\Mawgood\MawgoodApi\obj\Debug\net7.0\ref\MawgoodApi.dll
 D:\Mawgood\Mawgood\MawgoodApi\obj\Debug\net7.0\MawgoodApi.MvcApplicationPartsAssemblyInfo.cs
+D:\Mawgood\Mawgood\MawgoodApi\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
