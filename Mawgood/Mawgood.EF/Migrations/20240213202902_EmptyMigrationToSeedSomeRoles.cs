@@ -13,7 +13,6 @@ namespace Mawgood.EF.Migrations
             // seed some roles
             migrationBuilder.Sql("INSERT INTO AspNetRoles (Id, Name, NormalizedName) VALUES ('1', 'Employer', 'EMPLOYER')");
             migrationBuilder.Sql("INSERT INTO AspNetRoles (Id, Name, NormalizedName) VALUES ('2', 'JobSeeker', 'JOBSEEKER')");
-
         }
 
         /// <inheritdoc />

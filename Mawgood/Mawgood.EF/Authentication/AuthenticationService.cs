@@ -1,7 +1,9 @@
 ﻿using Mawgood.Core.DTO.Request;
+using Mawgood.Core.DTO.Response;
 using Mawgood.Core.IRepositories;
 using Mawgood.Core.Jwt;
 using Mawgood.Core.Models;
+using Mawgood.EF.DB;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -24,17 +26,43 @@ namespace Mawgood.EF.Authentication
             _token = token;
             _unitOfWork = unitOfWork;
         }
-        public async Task<string> Authenticate(string email, string password)
+        public async Task<AuthenticationResponse> Authenticate(string email, string password)
         {
             var user = await _userManager.FindByEmailAsync(email);
             if (user != null && await _userManager.CheckPasswordAsync(user, password))
             {
-                return _token.GenerateToken(user.Id);
+                var role = (await _userManager.GetRolesAsync(user)).FirstOrDefault();
+                if (role != null)
+                {
+                      if (role == "Employer")
+                        {
+                            var employer = _unitOfWork.Employers.GetFirstAsync(x => x.UserId == user.Id);
+                            return new AuthenticationResponse()
+                            {
+                                Id = employer.Id,
+                                Role = role,
+                                IsAuthenticated = true,
+                                Token = _token.GenerateToken(user.Id)
+                            };
+                        }
+                    else if (role == "JobSeeker")
+                    {
+                        var jobSeeker = _unitOfWork.JobSeekers.GetFirstAsync(x => x.UserId == user.Id);
+                        return new AuthenticationResponse()
+                        {
+                            Id = jobSeeker.Id,
+                            Role = role,
+                            IsAuthenticated = true,
+                            Token = _token.GenerateToken(user.Id)
+                        };
+                    }
+                }
+                return new AuthenticationResponse();
             }
-            return string.Empty;
+            return new AuthenticationResponse();
         }
         // job seeker register
-        public async Task<string> RegisterJobSeeker(JobSeekerRegistrationRequest model)
+        public async Task<AuthenticationResponse> RegisterJobSeeker(JobSeekerRegistrationRequest model)
         {
             var user = new User()
             { 
@@ -55,14 +83,20 @@ namespace Mawgood.EF.Authentication
                     ImageUrl = model.ImageUrl,
                     CvUrl = model.CvUrl
                 };
-                await _unitOfWork.JobSeekers.Add(jobSeeker);
+                var JS = await _unitOfWork.JobSeekers.Add(jobSeeker) ;
                 _unitOfWork.Complete();
-                return _token.GenerateToken(user.Id);
+                return new AuthenticationResponse()
+                {
+                    Id = JS.Data.Id,
+                    Role = "JobSeeker",
+                    IsAuthenticated = true,
+                    Token = _token.GenerateToken(user.Id)
+                };
             }
-            return string.Empty;
+            return new AuthenticationResponse();
         }
         // employer register
-        public async Task<string> RegisterEmployer(EmployerRegistrationRequest model)
+        public async Task<AuthenticationResponse> RegisterEmployer(EmployerRegistrationRequest model)
         {
             var user = new User()
             {
@@ -97,11 +131,17 @@ namespace Mawgood.EF.Authentication
                     CompanyVision = model.CompanyVision,
                     CompanyServices = model.CompanyServices
                 };
-                await _unitOfWork.Employers.Add(employer);
+                var E = await _unitOfWork.Employers.Add(employer);
                 _unitOfWork.Complete();
-                return _token.GenerateToken(user.Id);
+                return new AuthenticationResponse()
+                {
+                    Id = E.Data.Id,
+                    Role = "Employer",
+                    IsAuthenticated = true,
+                    Token = _token.GenerateToken(user.Id)
+                };
             }
-            return string.Empty;
+            return new AuthenticationResponse();
         }
     }
 }
