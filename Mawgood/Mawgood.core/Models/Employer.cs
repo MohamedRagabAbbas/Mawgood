@@ -46,7 +46,6 @@ namespace Mawgood.Core.Models
         //Relationships
         public string UserId { get; set; } = string.Empty;  
         public User? User { get; set; }
-        public int? JobId { get; set; }
         public List<Job>? Jobs { get; set; }
 
 

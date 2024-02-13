@@ -30,7 +30,25 @@ namespace Mawgood.EF.DB
                 .WithOne(x => x.JobSeeker)
                 .HasForeignKey<JobSeeker>(x => x.UserId);
 
+            builder.Entity<Employer>()
+                .HasMany(x=>x.Jobs)
+                .WithOne(x=>x.Employer)
+                .HasForeignKey(y => y.EmployerId);
 
+            builder.Entity<JobSeeker>()
+                .HasMany(x => x.Applications)
+                .WithOne(x => x.JobSeeker)
+                .HasForeignKey(x => x.JobSeekerId);
+
+            builder.Entity<Application>()
+                .HasOne(x => x.Job)
+                .WithMany(x => x.Applications)
+                .HasForeignKey(x => x.JobId);
+
+            builder.Entity<Application>()
+                .HasOne(x=>x.JobSeeker)
+                .WithMany(x => x.Applications)
+                .HasForeignKey(x => x.JobId);
 
             base.OnModelCreating(builder);
         }
