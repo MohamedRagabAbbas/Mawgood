@@ -89,7 +89,7 @@ namespace Mawgood.EF.Repositories
                 {
                     Message = "This object is added successfully...",
                     Status = true,
-                    Data = obj as T
+                    Data = obj.Entity 
                 };
             return new ResponseMessage<T>() { Message = "This object is not added..." };
         }

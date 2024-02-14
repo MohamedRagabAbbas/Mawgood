@@ -5,6 +5,7 @@ using Mawgood.Core.Jwt;
 using Mawgood.Core.Models;
 using Mawgood.EF.DB;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,19 +17,17 @@ namespace Mawgood.EF.Authentication
     public  class AuthenticationService
     {
         private readonly UserManager<User> _userManager;
-        private readonly Jwt _jwt;
         private readonly Token _token;
         private readonly IUnitOfWork _unitOfWork;
-        public AuthenticationService(UserManager<User> userManager, Jwt jwt, Token token, IUnitOfWork unitOfWork)
+        public AuthenticationService(UserManager<User> userManager, Token token, IUnitOfWork unitOfWork)
         {
             _userManager = userManager;
-            _jwt = jwt;
             _token = token;
             _unitOfWork = unitOfWork;
         }
         public async Task<AuthenticationResponse> Authenticate(string email, string password)
         {
-            var user = await _userManager.FindByEmailAsync(email);
+            var user = await _userManager.FindByNameAsync(email);
             if (user != null && await _userManager.CheckPasswordAsync(user, password))
             {
                 var role = (await _userManager.GetRolesAsync(user)).FirstOrDefault();
@@ -39,7 +38,7 @@ namespace Mawgood.EF.Authentication
                             var employer = _unitOfWork.Employers.GetFirstAsync(x => x.UserId == user.Id);
                             return new AuthenticationResponse()
                             {
-                                Id = employer.Id,
+                                Id = employer.Result.Data.Id,
                                 Role = role,
                                 IsAuthenticated = true,
                                 Token = _token.GenerateToken(user.Id)
@@ -50,7 +49,7 @@ namespace Mawgood.EF.Authentication
                         var jobSeeker = _unitOfWork.JobSeekers.GetFirstAsync(x => x.UserId == user.Id);
                         return new AuthenticationResponse()
                         {
-                            Id = jobSeeker.Id,
+                            Id = jobSeeker.Result.Data.Id,
                             Role = role,
                             IsAuthenticated = true,
                             Token = _token.GenerateToken(user.Id)
@@ -65,17 +64,20 @@ namespace Mawgood.EF.Authentication
         public async Task<AuthenticationResponse> RegisterJobSeeker(JobSeekerRegistrationRequest model)
         {
             var user = new User()
-            { 
+            {
                 Email = model.Email,
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 PhoneNumber = model.PhoneNumber,
+                // unused properties
+                UserName = model.Email
             };
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
                 //add Role
                 await _userManager.AddToRoleAsync(user, "JobSeeker");
+              
                 var jobSeeker = new JobSeeker
                 {
                     UserId = user.Id,
@@ -83,15 +85,18 @@ namespace Mawgood.EF.Authentication
                     ImageUrl = model.ImageUrl,
                     CvUrl = model.CvUrl
                 };
-                var JS = await _unitOfWork.JobSeekers.Add(jobSeeker) ;
-                _unitOfWork.Complete();
-                return new AuthenticationResponse()
+                var JS = await _unitOfWork.JobSeekers.Add(jobSeeker);
+                if(JS is not null)
                 {
-                    Id = JS.Data.Id,
-                    Role = "JobSeeker",
-                    IsAuthenticated = true,
-                    Token = _token.GenerateToken(user.Id)
-                };
+                    _unitOfWork.Complete();
+                    return new AuthenticationResponse()
+                    {
+                        Id = JS.Data.Id,
+                        Role = "JobSeeker",
+                        IsAuthenticated = true,
+                        Token = _token.GenerateToken(user.Id)
+                    };
+                }
             }
             return new AuthenticationResponse();
         }
@@ -100,7 +105,7 @@ namespace Mawgood.EF.Authentication
         {
             var user = new User()
             {
-                Email = model.Email,
+                UserName = model.Email,
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 PhoneNumber = model.CompanyPhone,

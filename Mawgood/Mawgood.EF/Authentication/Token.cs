@@ -1,4 +1,5 @@
 ﻿using Mawgood.Core.Jwt;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -13,9 +14,9 @@ namespace Mawgood.EF.Authentication
     public  class Token
     {
         private readonly Jwt _jwt;
-        public Token(Jwt jwt)
+        public Token(IOptionsMonitor<Jwt> jwt)
         {
-            _jwt = jwt;
+            _jwt = jwt.CurrentValue;
         }
         public string GenerateToken(string userId)
         {

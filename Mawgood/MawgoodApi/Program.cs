@@ -10,8 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using AutoMapper;
-
-
+using Mawgood.EF.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,11 +30,28 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddIdentity<User, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    // Default Password settings.
+    options.Password.RequireDigit = true;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireNonAlphanumeric = true;
+    options.Password.RequireUppercase = true;
+    options.Password.RequiredLength = 8;
+
+    // userName settings.
+    options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+/ \\";
+    
+
+});
 
 
+builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<Token>();
+builder.Services.AddScoped<AuthenticationService>();
+builder.Services.Configure<Jwt>(builder.Configuration.GetSection("Jwt"));
 
 // Authentication
-builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -52,7 +68,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -61,7 +76,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseAuthentication();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
@@ -69,3 +84,17 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+
+/*
+ {
+  "firstName": "Mohamed",
+  "lastName": "Ragab",
+  "phoneNumber": "01023483041",
+  "feild": "Computer Science",
+  "imageUrl": "string",
+  "cvUrl": "string",
+  "email": "Mohamed_Ragab02@aucegypt.edu",
+  "password": "01023483041mM@"
+}
+*/
