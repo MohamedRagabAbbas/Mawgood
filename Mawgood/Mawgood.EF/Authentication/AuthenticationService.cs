@@ -98,7 +98,13 @@ namespace Mawgood.EF.Authentication
                     };
                 }
             }
-            return new AuthenticationResponse();
+            var errors = result.Errors.ToList();
+            string Error = "";
+            foreach (var item in errors)
+            {
+                Error += item.Description + " ";
+            }
+            return new AuthenticationResponse() { Message = Error };
         }
         // employer register
         public async Task<AuthenticationResponse> RegisterEmployer(EmployerRegistrationRequest model)
@@ -146,7 +152,13 @@ namespace Mawgood.EF.Authentication
                     Token = _token.GenerateToken(user.Id)
                 };
             }
-            return new AuthenticationResponse();
+            var errors = result.Errors.ToList();
+            string Error = "";
+            foreach (var item in errors)
+            {
+                Error += item.Description + " ";
+            }
+            return new AuthenticationResponse() { Message = Error};
         }
     }
 }

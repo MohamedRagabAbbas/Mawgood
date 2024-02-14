@@ -42,6 +42,7 @@ namespace MawgoodApi.Controllers
         public async Task<IActionResult> Update([FromBody] Employer employer)
         {
             _unitOfWork.Employers.Update(employer);
+            _unitOfWork.Complete();
             return Ok();
         }
         // delete employer
@@ -50,6 +51,7 @@ namespace MawgoodApi.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             await _unitOfWork.Employers.Delete(id);
+            _unitOfWork.Complete();
             return Ok();
         }
     }

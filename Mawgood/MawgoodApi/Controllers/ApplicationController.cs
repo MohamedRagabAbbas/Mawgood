@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Mawgood.Core.DTO.Request;
+using Mawgood.Core.IRepositories;
 using Mawgood.Core.Models;
 using Mawgood.EF.Repositories;
 using Microsoft.AspNetCore.Http;
@@ -11,9 +12,9 @@ namespace MawgoodApi.Controllers
     [ApiController]
     public class ApplicationController : ControllerBase
     {
-        private readonly UnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        public ApplicationController(UnitOfWork unitOfWork, IMapper mapper)
+        public ApplicationController(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;

@@ -33,9 +33,9 @@ namespace Mawgood.Core.Models
         public bool IsRemote { get; set; } = false;
 
         //Relationships
-        public int EmployerId { get; set; } 
-        public Employer? Employer { get; set; }
-        public List<Application>? Applications { get; set; }
+        public int EmployerId { get; set; }
+        public Employer? Employer { get; set; } = null;
+        public List<Application>? Applications { get; set; } = null;
 
     }
 }

@@ -1,7 +1,6 @@
 using Mawgood.Core.IRepositories;
 using Mawgood.Core.Jwt;
 using Mawgood.Core.Models;
-using Mawgood.EF.AutoMapping;
 using Mawgood.EF.DB;
 using Mawgood.EF.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -9,8 +8,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using AutoMapper;
 using Mawgood.EF.Authentication;
+using Microsoft.AspNetCore.Hosting;
+using AutoMapper;
+using Mawgood.Core.AutoMapper;
+using Mawgood.EF.AutoMapping;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -49,6 +51,7 @@ builder.Services.Configure<IdentityOptions>(options =>
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<Token>();
 builder.Services.AddScoped<AuthenticationService>();
+builder.Services.AddScoped<IMapping, Mapping>();
 builder.Services.Configure<Jwt>(builder.Configuration.GetSection("Jwt"));
 
 // Authentication
@@ -66,6 +69,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
         };
     });
+builder.Services.AddAutoMapper(typeof(Program));
 
 
 var app = builder.Build();

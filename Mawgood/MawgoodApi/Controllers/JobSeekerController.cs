@@ -1,4 +1,5 @@
-﻿using Mawgood.Core.Models;
+﻿using Mawgood.Core.IRepositories;
+using Mawgood.Core.Models;
 using Mawgood.EF.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,8 +10,8 @@ namespace MawgoodApi.Controllers
     [ApiController]
     public class JobSeekerController : ControllerBase
     {
-        private readonly UnitOfWork _unitOfWork;
-        public JobSeekerController(UnitOfWork unitOfWork)
+        private readonly IUnitOfWork _unitOfWork;
+        public JobSeekerController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
@@ -41,6 +42,7 @@ namespace MawgoodApi.Controllers
         public async Task<IActionResult> Update([FromBody] JobSeeker jobSeeker)
         {
             _unitOfWork.JobSeekers.Update(jobSeeker);
+            _unitOfWork.Complete();
             return Ok();
         }
         // delete job seeker
@@ -49,6 +51,7 @@ namespace MawgoodApi.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             await _unitOfWork.JobSeekers.Delete(id);
+            _unitOfWork.Complete();
             return Ok();
         }
     }
