@@ -1,4 +1,5 @@
-﻿using Mawgood.Core.Models;
+﻿using Mawgood.Core.IRepositories;
+using Mawgood.Core.Models;
 using Mawgood.EF.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,8 +10,8 @@ namespace MawgoodApi.Controllers
     [ApiController]
     public class EmployerController : ControllerBase
     {
-        private readonly UnitOfWork _unitOfWork;
-        public EmployerController(UnitOfWork unitOfWork)
+        private readonly IUnitOfWork _unitOfWork;
+        public EmployerController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
