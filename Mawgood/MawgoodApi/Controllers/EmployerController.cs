@@ -1,11 +1,13 @@
 ﻿using Mawgood.Core.IRepositories;
 using Mawgood.Core.Models;
 using Mawgood.EF.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MawgoodApi.Controllers
 {
+    [Authorize(Roles = "Employer")]
     [Route("api/[controller]")]
     [ApiController]
     public class EmployerController : ControllerBase

@@ -10,7 +10,10 @@ namespace Mawgood.Core.AutoMapper
 {
     public interface IMapping
     {
-        public Job FromJobInfoToJob(JobInfo jobInfo);
-        public List<Job> FromtJobInfoLisToJobList(List<JobInfo> jobInfo);
+        public Job JobInfoToJob(JobInfo jobInfo);
+        public List<Job> JobInfoLisToJobList(List<JobInfo> jobInfo);
+
+        public Application ApplicationInfoToApplication(ApplicationInfo applicationInfo);
+        public List<Application> ApplicationInfoListToApplicationList(List<ApplicationInfo> applicationInfo);
     }
 }

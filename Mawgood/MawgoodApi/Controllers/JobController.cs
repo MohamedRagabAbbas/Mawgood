@@ -5,7 +5,9 @@ using Mawgood.Core.IRepositories;
 using Mawgood.Core.Models;
 using Mawgood.EF.AutoMapping;
 using Mawgood.EF.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MawgoodApi.Controllers
@@ -35,6 +37,7 @@ namespace MawgoodApi.Controllers
             var response = await _unitOfWork.Jobs.GetByIdAsync(id);
             return Ok(response);
         }
+        [Authorize(Roles = "Employer")]
         [Route("create")]
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] JobInfo jobInfo)
@@ -44,6 +47,7 @@ namespace MawgoodApi.Controllers
             _unitOfWork.Complete();
             return Ok(response);
         }
+        [Authorize(Roles = "Employer")]
         [Route("create-range")]
         [HttpPost]
         public async Task<IActionResult> CreateRange([FromBody] List<JobInfo> jobInfos)
@@ -52,6 +56,25 @@ namespace MawgoodApi.Controllers
             await _unitOfWork.Jobs.AppRanage(jobs.ToList());
             var result = _unitOfWork.Complete();
             return Ok(result!=0?"Added Successfully...":"Something went wrong...");
+        }
+        [Authorize(Roles = "Employer")]
+        [Route("update")]
+        [HttpPut]
+        public async Task<IActionResult> Update([FromBody] JobInfo jobInfo)
+        {
+            var job = _mapping.FromJobInfoToJob(jobInfo);
+            _unitOfWork.Jobs.Update(job);
+            var result = _unitOfWork.Complete();
+            return Ok(result != 0 ? "Added Successfully..." : "Something went wrong...");
+        }
+        [Authorize(Roles = "Employer")]
+        [Route("delete/{id}")]
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _unitOfWork.Jobs.Delete(id);
+            var result = _unitOfWork.Complete();
+            return Ok(result != 0 ? "Added Successfully..." : "Something went wrong...");
         }
 
     }

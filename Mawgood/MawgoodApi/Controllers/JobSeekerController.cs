@@ -1,11 +1,13 @@
 ﻿using Mawgood.Core.IRepositories;
 using Mawgood.Core.Models;
 using Mawgood.EF.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MawgoodApi.Controllers
 {
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class JobSeekerController : ControllerBase
@@ -37,6 +39,7 @@ namespace MawgoodApi.Controllers
             return Ok(response);
         }
         // update job seeker
+        [Authorize(Roles = "JobSeeker")]
         [Route("update")]
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] JobSeeker jobSeeker)
@@ -46,6 +49,7 @@ namespace MawgoodApi.Controllers
             return Ok();
         }
         // delete job seeker
+        [Authorize(Roles = "JobSeeker")]
         [Route("delete/{id}")]
         [HttpDelete]
         public async Task<IActionResult> Delete(int id)
