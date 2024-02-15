@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "9rf0iKGC9VgtrVzANU6yrgbVqAfsAaFAPUiPy2k7fFG+rf0lT49TK5FJRQoyf857bYWFXOzpgEBYYAPKSoW1sw==",
+  "dgSpecHash": "Gf4Y4ucSpVnIDElFKBSxKaILGLP+11mSoxO9yReHB2ctrYLpOEEY2dyQgmHDkq/JFQNFw82wm8mRODLeosL/zQ==",
   "success": true,
   "projectFilePath": "D:\\Mawgood\\Mawgood\\MawgoodApi\\MawgoodApi.csproj",
   "expectedPackageFiles": [
@@ -10,9 +10,11 @@
     "C:\\Users\\AUC\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\AUC\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\AUC\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.16\\microsoft.aspnetcore.authentication.jwtbearer.7.0.16.nupkg.sha512",
+    "C:\\Users\\AUC\\.nuget\\packages\\microsoft.aspnetcore.authorization\\7.0.16\\microsoft.aspnetcore.authorization.7.0.16.nupkg.sha512",
     "C:\\Users\\AUC\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.15\\microsoft.aspnetcore.cryptography.internal.7.0.15.nupkg.sha512",
     "C:\\Users\\AUC\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.15\\microsoft.aspnetcore.cryptography.keyderivation.7.0.15.nupkg.sha512",
     "C:\\Users\\AUC\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\7.0.15\\microsoft.aspnetcore.identity.entityframeworkcore.7.0.15.nupkg.sha512",
+    "C:\\Users\\AUC\\.nuget\\packages\\microsoft.aspnetcore.metadata\\7.0.16\\microsoft.aspnetcore.metadata.7.0.16.nupkg.sha512",
     "C:\\Users\\AUC\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.9\\microsoft.aspnetcore.openapi.7.0.9.nupkg.sha512",
     "C:\\Users\\AUC\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\AUC\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
@@ -35,7 +37,7 @@
     "C:\\Users\\AUC\\.nuget\\packages\\microsoft.extensions.identity.core\\7.0.15\\microsoft.extensions.identity.core.7.0.15.nupkg.sha512",
     "C:\\Users\\AUC\\.nuget\\packages\\microsoft.extensions.identity.stores\\7.0.15\\microsoft.extensions.identity.stores.7.0.15.nupkg.sha512",
     "C:\\Users\\AUC\\.nuget\\packages\\microsoft.extensions.logging\\7.0.0\\microsoft.extensions.logging.7.0.0.nupkg.sha512",
-    "C:\\Users\\AUC\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\AUC\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.1\\microsoft.extensions.logging.abstractions.7.0.1.nupkg.sha512",
     "C:\\Users\\AUC\\.nuget\\packages\\microsoft.extensions.options\\7.0.1\\microsoft.extensions.options.7.0.1.nupkg.sha512",
     "C:\\Users\\AUC\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
     "C:\\Users\\AUC\\.nuget\\packages\\microsoft.identity.client\\4.47.2\\microsoft.identity.client.4.47.2.nupkg.sha512",

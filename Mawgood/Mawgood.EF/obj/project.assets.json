@@ -93,6 +93,24 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Authorization/7.0.16": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Metadata": "7.0.16",
+          "Microsoft.Extensions.Logging.Abstractions": "7.0.1",
+          "Microsoft.Extensions.Options": "7.0.1"
+        },
+        "compile": {
+          "lib/net7.0/Microsoft.AspNetCore.Authorization.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/Microsoft.AspNetCore.Authorization.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/7.0.15": {
         "type": "package",
         "compile": {
@@ -135,6 +153,19 @@
         },
         "runtime": {
           "lib/net7.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Metadata/7.0.16": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/Microsoft.AspNetCore.Metadata.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/Microsoft.AspNetCore.Metadata.dll": {
             "related": ".xml"
           }
         }
@@ -505,7 +536,7 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "Microsoft.Extensions.Logging.Abstractions/7.0.0": {
+      "Microsoft.Extensions.Logging.Abstractions/7.0.1": {
         "type": "package",
         "compile": {
           "lib/net7.0/Microsoft.Extensions.Logging.Abstractions.dll": {
@@ -1362,6 +1393,25 @@
         "logo.png"
       ]
     },
+    "Microsoft.AspNetCore.Authorization/7.0.16": {
+      "sha512": "O1L9W6r3lrl8FLhMQJwBv2bxhlrdCCeOruiO/6Aib3N8A7zc0xhISOXIJQZmM4I5XCBoNCQ6rRnKdYyVmgAiNg==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authorization/7.0.16",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net462/Microsoft.AspNetCore.Authorization.dll",
+        "lib/net462/Microsoft.AspNetCore.Authorization.xml",
+        "lib/net7.0/Microsoft.AspNetCore.Authorization.dll",
+        "lib/net7.0/Microsoft.AspNetCore.Authorization.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.xml",
+        "microsoft.aspnetcore.authorization.7.0.16.nupkg.sha512",
+        "microsoft.aspnetcore.authorization.nuspec"
+      ]
+    },
     "Microsoft.AspNetCore.Cryptography.Internal/7.0.15": {
       "sha512": "hR17F9tKXhtadKBr01d8XSC9HAIyLQtPL/r/JxHGPKdNqLt6nWupzDhO+2AbQQ9SSpBA1j4Uog5s+gB11YotAA==",
       "type": "package",
@@ -1413,6 +1463,25 @@
         "lib/net7.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml",
         "microsoft.aspnetcore.identity.entityframeworkcore.7.0.15.nupkg.sha512",
         "microsoft.aspnetcore.identity.entityframeworkcore.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Metadata/7.0.16": {
+      "sha512": "vTqWt54ZHNS+nY/yhKcnIwWaqVMW4BLBjGn1mdXkhjvCbArtYhtILpv/FaYM4Z4i37Vxw4nf3gLSMJLEg9fLzQ==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.metadata/7.0.16",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net462/Microsoft.AspNetCore.Metadata.dll",
+        "lib/net462/Microsoft.AspNetCore.Metadata.xml",
+        "lib/net7.0/Microsoft.AspNetCore.Metadata.dll",
+        "lib/net7.0/Microsoft.AspNetCore.Metadata.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Metadata.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Metadata.xml",
+        "microsoft.aspnetcore.metadata.7.0.16.nupkg.sha512",
+        "microsoft.aspnetcore.metadata.nuspec"
       ]
     },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
@@ -1930,10 +1999,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Logging.Abstractions/7.0.0": {
-      "sha512": "kmn78+LPVMOWeITUjIlfxUPDsI0R6G0RkeAMBmQxAJ7vBJn4q2dTva7pWi65ceN5vPGjJ9q/Uae2WKgvfktJAw==",
+    "Microsoft.Extensions.Logging.Abstractions/7.0.1": {
+      "sha512": "pkeBFx0vqMW/A3aUVHh7MPu3WkBhaVlezhSZeb1c9XD0vUReYH1TLFSy5MxJgZfmz5LZzYoErMorlYZiwpOoNA==",
       "type": "package",
-      "path": "microsoft.extensions.logging.abstractions/7.0.0",
+      "path": "microsoft.extensions.logging.abstractions/7.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1995,7 +2064,7 @@
         "lib/net7.0/Microsoft.Extensions.Logging.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.xml",
-        "microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
+        "microsoft.extensions.logging.abstractions.7.0.1.nupkg.sha512",
         "microsoft.extensions.logging.abstractions.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -3594,6 +3663,7 @@
     "net7.0": [
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 6.0.0",
       "Mawgood.Core >= 1.0.0",
+      "Microsoft.AspNetCore.Authorization >= 7.0.16",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 7.0.15",
       "Microsoft.EntityFrameworkCore >= 7.0.15",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.15",
@@ -3652,6 +3722,10 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": {
             "target": "Package",
             "version": "[6.0.0, )"
+          },
+          "Microsoft.AspNetCore.Authorization": {
+            "target": "Package",
+            "version": "[7.0.16, )"
           },
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
             "target": "Package",

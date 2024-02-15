@@ -87,3 +87,6 @@ D:\Mawgood\Mawgood\MawgoodApi\obj\Debug\net7.0\MawgoodApi.MvcApplicationPartsAss
 D:\Mawgood\Mawgood\MawgoodApi\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Mawgood\Mawgood\MawgoodApi\bin\Debug\net7.0\AutoMapper.dll
 D:\Mawgood\Mawgood\MawgoodApi\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\Mawgood\Mawgood\MawgoodApi\bin\Debug\net7.0\Microsoft.AspNetCore.Authorization.dll
+D:\Mawgood\Mawgood\MawgoodApi\bin\Debug\net7.0\Microsoft.AspNetCore.Metadata.dll
+D:\Mawgood\Mawgood\MawgoodApi\bin\Debug\net7.0\Microsoft.Extensions.Logging.Abstractions.dll

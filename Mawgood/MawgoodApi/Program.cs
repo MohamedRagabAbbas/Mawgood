@@ -13,6 +13,8 @@ using Microsoft.AspNetCore.Hosting;
 using AutoMapper;
 using Mawgood.Core.AutoMapper;
 using Mawgood.EF.AutoMapping;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -73,6 +75,16 @@ builder.Services.AddAuthentication(options =>
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
         };
     });
+
+
+
+
+
+
+
+
+
+
 builder.Services.AddAutoMapper(typeof(Program));
 
 

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="7.0.16" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.15" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.15" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.15" />
@@ -21,6 +22,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Mawgood.Core\Mawgood.Core.csproj" />
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <Folder Include="Authorization\" />
   </ItemGroup>
 
 </Project>

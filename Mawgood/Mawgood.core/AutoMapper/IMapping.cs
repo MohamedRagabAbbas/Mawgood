@@ -15,5 +15,14 @@ namespace Mawgood.Core.AutoMapper
 
         public Application ApplicationInfoToApplication(ApplicationInfo applicationInfo);
         public List<Application> ApplicationInfoListToApplicationList(List<ApplicationInfo> applicationInfo);
+
+
+
+        // for update medthos 
+        public Job JobInfoToJob(JobInfo jobInfo, int jobId);
+        public List<Job> JobInfoLisToJobList(List<JobInfo> jobInfo,int jobId);
+
+        public Application ApplicationInfoToApplication(ApplicationInfo applicationInfo, int applicationID);
+        public List<Application> ApplicationInfoListToApplicationList(List<ApplicationInfo> applicationInfo, int applicationID);
     }
 }
