@@ -30,7 +30,7 @@ namespace Mawgood.EF.Authentication
                         issuer: _jwt.Issuer,
                         audience: _jwt.Audience,
                         claims: claims,
-                        expires: DateTime.Now.AddMinutes(30),
+                        expires: DateTime.Now.AddMinutes(_jwt.ExpireAfterInMinutes),
                         signingCredentials: signingCredentials);
             var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
             return tokenString;
