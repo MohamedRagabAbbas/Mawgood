@@ -108,15 +108,3 @@ app.MapControllers();
 app.Run();
 
 
-/*
- {
-  "firstName": "Mohamed",
-  "lastName": "Ragab",
-  "phoneNumber": "01023483041",
-  "feild": "Computer Science",
-  "imageUrl": "string",
-  "cvUrl": "string",
-  "email": "Mohamed_Ragab02@aucegypt.edu",
-  "password": "01023483041mM@"
-}
-*/
